@@ -12,7 +12,37 @@ use core::f64;
 use alloc::vec::Vec;
 
 #[cfg(not(feature = "std"))]
-use libm::F64Ext;
+trait F64Ext {
+    fn abs(self) -> f64;
+    fn ceil(self) -> f64;
+    fn ln(self) -> f64;
+    fn log10(self) -> f64;
+    fn sin(self) -> f64;
+}
+
+#[cfg(not(feature = "std"))]
+impl F64Ext for f64 {
+    #[inline]
+    fn abs(self) -> f64 {
+        libm::fabs(self)
+    }
+    #[inline]
+    fn ceil(self) -> f64 {
+        libm::ceil(self)
+    }
+    #[inline]
+    fn ln(self) -> f64 {
+        libm::log(self)
+    }
+    #[inline]
+    fn log10(self) -> f64 {
+        libm::log10(self)
+    }
+    #[inline]
+    fn sin(self) -> f64 {
+        libm::sin(self)
+    }
+}
 
 #[cfg(not(feature = "std"))]
 use super::math;
