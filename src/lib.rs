@@ -30,5 +30,8 @@ pub enum ChipModel {
     Mos8580,
 }
 
+pub const NTSC_CLOCK: u32 = 1_022_727;
+pub const PAL_CLOCK: u32 = 985_248;
+
 pub use self::sampler::SamplingMethod;
 pub use self::sid::Sid;

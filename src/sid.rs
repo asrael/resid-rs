@@ -77,7 +77,7 @@ impl Sid {
             bus_value: 0,
             bus_value_ttl: 0,
         };
-        sid.set_sampling_parameters(SamplingMethod::Fast, 985_248, 44100);
+        sid.set_sampling_parameters(SamplingMethod::Fast, crate::PAL_CLOCK, 44100);
         sid
     }
 
